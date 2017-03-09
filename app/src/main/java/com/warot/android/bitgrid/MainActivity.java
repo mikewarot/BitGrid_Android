@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         // https://www.youtube.com/watch?v=bIZzbsARVbc
         // 8:17 into the video
 
-        Toast.makeText(this, "Button Clicked",Toast.LENGTH_LONG).show();
+        Toast.makeText(this, R.string.TestNotification, Toast.LENGTH_LONG).show();
 
     }
 }
