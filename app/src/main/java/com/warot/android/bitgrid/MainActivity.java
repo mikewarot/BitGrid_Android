@@ -8,14 +8,30 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import static com.warot.android.bitgrid.R.id.bit0;
+import static com.warot.android.bitgrid.R.id.bit1;
+import static com.warot.android.bitgrid.R.id.bit2;
+import static com.warot.android.bitgrid.R.id.bit3;
+
 public class MainActivity extends AppCompatActivity {
+    CheckBox cb0,cb1,cb2,cb3;
+    EditText txtdecimal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        cb0 = (CheckBox) findViewById(bit0);
+        cb1 = (CheckBox) findViewById(bit1);
+        cb2 = (CheckBox) findViewById(bit2);
+        cb3 = (CheckBox) findViewById(bit3);
+
+        txtdecimal = (EditText) findViewById(R.id.txtDecimal);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +63,22 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void doClickstuff(View v) {
+
+    }
+
+    public void doCheckbox(View v) {
+        int sum;
+        String s;
+        sum = 0;
+        if (cb0.isChecked()) sum += 1;
+        if (cb1.isChecked()) sum += 2;
+        if (cb2.isChecked()) sum += 4;
+        if (cb3.isChecked()) sum += 8;
+       
+        txtdecimal.setText(String.valueOf(sum));
     }
 
     public void btnTestClicked(View v) {
