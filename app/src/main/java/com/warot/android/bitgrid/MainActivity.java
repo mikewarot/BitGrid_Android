@@ -1,10 +1,10 @@
 package com.warot.android.bitgrid;
 
+import android.app.ActivityManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         cb2 = (CheckBox) findViewById(bit2);
         cb3 = (CheckBox) findViewById(bit3);
 
-        txtdecimal = (EditText) findViewById(R.id.txtDecimal);
+        txtdecimal = (EditText) findViewById(R.id.txtHex);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         if (cb2.isChecked()) sum += 4;
         if (cb3.isChecked()) sum += 8;
        
-        txtdecimal.setText(String.valueOf(sum));
+        txtdecimal.setText(Integer.toHexString(sum));
     }
 
     public void btnTestClicked(View v) {
@@ -88,6 +88,6 @@ public class MainActivity extends AppCompatActivity {
         // 8:17 into the video
 
         Toast.makeText(this, R.string.TestNotification, Toast.LENGTH_LONG).show();
-
+        finishAndRemoveTask();
     }
 }
